@@ -32,8 +32,6 @@ def handle_message_events(body, logger):
 
 @flask_app.route("/slack/events", methods=["POST"])
 def slack_events():
-    if request.json.get("type") == "url_verification":
-        return jsonify({"challenge": request.json.get("challenge")})
     return handler.handle(request)
 
 
